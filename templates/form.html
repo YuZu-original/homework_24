@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Main Page</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h1 style="text-align: center;">Main Page</h1>
+        <h2>Commands</h2>
+        <ul>
+            <li>filter</li>
+            <li>map</li>
+            <li>unique</li>
+            <li>sort</li>
+            <li>limit</li>
+            <li>regex</li>
+        </ul>
+    </div>
+    <form action = "/perform_query" method="post">
+        <input type="text" name="file_name" placeholder="file name" list="filename">
+        <datalist id="filename">
+        {% for filename in filenames %}
+            <option value={{ filename }}>
+        {% endfor %}
+        </datalist>
+        <div>
+            <input type="text" name="cmd1" placeholder="cmd1" list="commands">
+            <input type="text" name="value1" placeholder="value1">
+        </div>
+        <div>
+            <input type="text" name="cmd2" placeholder="cmd2" list="commands">
+            <input type="text" name="value2" placeholder="value2">
+        </div>
+        <datalist id="commands">
+            <option value="filter">
+            <option value="map">
+            <option value="unique">
+            <option value="sort">
+            <option value="limit">
+            <option value="regex">
+        </datalist>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>
